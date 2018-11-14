@@ -79,12 +79,17 @@ class App extends React.Component {
 
 
   render() {
+    let currentlyVisibleContent = null;
+    if (this.state.tamagotchi[0].isAlive === true){
+      currentlyVisibleContent = <div><Buttons helpButtonClicked={this.helpButtonClicked}/><Ranges tamagotchi={this.state.tamagotchi[0]}/></div>;
+    } else {
+      currentlyVisibleContent = <RestartButton tamagotchi={this.props.tamagotchi}/>;}
+
+
   return (
     <div>
       <Home tamagotchi={this.props.tamagotchi} />
-      <Buttons helpButtonClicked={this.helpButtonClicked}/>
-      <Ranges tamagotchi={this.state.tamagotchi[0]}/>
-      <RestartButton tamagotchi={this.props.tamagotchi}/>
+      {currentlyVisibleContent}
     </div>
   );
 }
