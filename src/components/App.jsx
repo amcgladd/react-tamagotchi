@@ -23,22 +23,27 @@ class App extends React.Component {
     }
 
   helpButtonClicked(need) {
-    let newTamagotchiArray = this.state.tamagotchi.slice();
-    let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
-    let newFulfilledNeed = newTamagotchi[need] + 10;
-    newTamagotchi[need] = newFulfilledNeed;
-    newTamagotchiArray[0] = newTamagotchi;
-    this.setState({
-      tamagotchi: newTamagotchiArray
-    }, () => {
-      console.log(this.state.tamagotchi[0]);
-    });
+    if (this.state.tamagotchi[0][need] <=90) {
+      let newTamagotchiArray = this.state.tamagotchi.slice();
+      let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+      let newFulfilledNeed = newTamagotchi[need] + 10;
+      newTamagotchi[need] = newFulfilledNeed;
+      newTamagotchiArray[0] = newTamagotchi;
+      this.setState({
+        tamagotchi: newTamagotchiArray
+      }, () => {
+        console.log(this.state.tamagotchi[0]);
+      });
+    }
   }
-
   componentDidMount() {
     this.increaseTamaNeed = setInterval(() =>
       this.getNeedierOverTime(),
     500);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.waitTimeUpdateTimer);
   }
 
   getNeedierOverTime() {
@@ -56,6 +61,9 @@ class App extends React.Component {
     }, () => {
       console.log(this.state.tamagotchi[0]);
     });
+    if (needFood <= 0 || needPlay <= 0 || needSleep <= 0) {
+      clearInterval(this.increaseTamaNeed);
+    }
   }
 
   render() {
