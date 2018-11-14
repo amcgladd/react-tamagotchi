@@ -1,10 +1,10 @@
 import React from 'react';
 import FeedButton from './FeedButton';
 
-function Buttons() {
+function Buttons({ helpButtonClicked }) {
   return(
     <div>
-      <FeedButton />
+      <FeedButton helpButtonClicked={helpButtonClicked}/>
     </div>
 
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FeedButton() {
+function FeedButton({ helpButtonClicked }) {
   return(
-    <button>Feed Me!!!</button>
+    <button onClick={() => { helpButtonClicked('feedNeed')}}>Feed Me!!!</button>
   );
 }
 
