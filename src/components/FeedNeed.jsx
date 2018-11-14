@@ -1,8 +1,9 @@
 import React from 'react';
 
-function FeedNeed(){
+function FeedNeed({ tamagotchi }){
+  // console.log(tamagotchi);
   return(
-    <h1>___ here is his feed need</h1>
+    <h1>{tamagotchi.feedNeed} here is his feed need</h1>
   );
 }
 

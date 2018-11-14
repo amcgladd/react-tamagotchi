@@ -26,25 +26,23 @@ class App extends React.Component {
     let newTamagotchiArray = this.state.tamagotchi.slice();
     let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
     let newFulfilledNeed = newTamagotchi[need] + 10;
-    newTamagotchi[need] = newFulfilledNeed; //button is working to increase newFulfilledNeed!!!
+    newTamagotchi[need] = newFulfilledNeed;
     newTamagotchiArray[0] = newTamagotchi;
-    console.log(newTamagotchiArray);
+    // console.log(newTamagotchiArray);
 
     this.setState({
       tamagotchi: newTamagotchiArray
     }, () => {
-      console.log(this.state.tamagotchi[0].feedNeed);
-
+      console.log(this.state.tamagotchi[0]);
     });
   }
 
   render() {
   return (
     <div>
-      <p onClick={this.helpButtonClicked}>clickhere</p>
       <Home tamagotchi={this.props.tamagotchi} />
       <Buttons helpButtonClicked={this.helpButtonClicked}/>
-      <Ranges tamagotchi={this.props.tamagotchi}/>
+      <Ranges tamagotchi={this.state.tamagotchi[0]}/>
       <RestartButton tamagotchi={this.props.tamagotchi}/>
     </div>
   );
