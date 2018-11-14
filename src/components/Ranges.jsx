@@ -1,10 +1,12 @@
 import React from 'react';
-import FeedNeed from './FeedNeed';
 
 function Ranges({ tamagotchi }){
-  console.log(tamagotchi);
   return(
-    <FeedNeed tamagotchi={tamagotchi}/>
+    <div>
+      <h1>Feed Need: {tamagotchi.feedNeed}</h1>
+      <h1>Sleep Need: {tamagotchi.sleepNeed}</h1>
+      <h1>Play Need: {tamagotchi.playNeed}</h1>
+    </div>
   );
 }
 
