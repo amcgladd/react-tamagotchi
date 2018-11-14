@@ -42,8 +42,19 @@ class App extends React.Component {
     500);
   }
 
-  componentWillUnmount(){
-    clearInterval(this.waitTimeUpdateTimer);
+
+
+  deathByNeed(){
+    clearInterval(this.increaseTamaNeed);
+    let newTamagotchiArray = this.state.tamagotchi.slice();
+    let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+    newTamagotchi.isAlive = false;
+    newTamagotchiArray[0] = newTamagotchi;
+    this.setState({
+      tamagotchi: newTamagotchiArray
+    }, () => {
+      console.log(this.state.tamagotchi[0]);
+    });
   }
 
   getNeedierOverTime() {
@@ -62,9 +73,10 @@ class App extends React.Component {
       console.log(this.state.tamagotchi[0]);
     });
     if (needFood <= 0 || needPlay <= 0 || needSleep <= 0) {
-      clearInterval(this.increaseTamaNeed);
+      this.deathByNeed();
     }
-  }
+  };
+
 
   render() {
   return (
