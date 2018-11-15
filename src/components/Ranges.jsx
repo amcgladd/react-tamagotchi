@@ -2,18 +2,34 @@ import React from 'react';
 import FeedProgressBar from './FeedProgressBar';
 import SleepProgressBar from './SleepProgressBar';
 import PlayProgressBar from './PlayProgressBar';
+import FeedButton from './FeedButton';
+import PlayButton from './PlayButton';
+import SleepButton from './SleepButton';
 
-function Ranges({ tamagotchi }){
+function Ranges({ tamagotchi, helpButtonClicked }){
+  const rangeContainer = {
+    margin: '5% 0px'
+  }
+  const rangeButtonStyles = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    margin: '10px 0px',
+    alignItems: 'center'
+  }
   return(
-    <div>
-      <div>
-        <h3>Energy: </h3><FeedProgressBar percentage={tamagotchi.feedNeed} />
+    <div style={rangeContainer}>
+      <div style={rangeButtonStyles}>
+        <FeedButton helpButtonClicked={helpButtonClicked}/>
+        <FeedProgressBar percentage={tamagotchi.feedNeed} />
       </div>
-      <div>
-        <h3>Awareness: </h3><SleepProgressBar percentage={tamagotchi.sleepNeed} />
+      <div style={rangeButtonStyles}>
+        <PlayButton helpButtonClicked={helpButtonClicked}/>
+        <PlayProgressBar percentage={tamagotchi.playNeed} />
       </div>
-      <div>
-        <h3>Happiness: </h3><PlayProgressBar percentage={tamagotchi.playNeed} />
+      <div style={rangeButtonStyles}>
+        <SleepButton helpButtonClicked={helpButtonClicked}/>
+        <SleepProgressBar percentage={tamagotchi.sleepNeed} />
       </div>
     </div>
   );

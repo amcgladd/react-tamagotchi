@@ -3,10 +3,10 @@ import SleepFiller from './SleepFiller';
 
 function SleepProgressBar({ percentage }) {
   const progressBarStyles = {
-    height: '20px',
-    width: '350px',
+    height: '22px',
+    width: '425px',
     borderRadius: '50px',
-    border: 'black solid 1px'
+    backgroundColor: 'white'
   }
   return(
     <div style={progressBarStyles}>

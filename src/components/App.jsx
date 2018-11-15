@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './home';
-import Buttons from './buttons';
 import RestartButton from './RestartButton';
 import Ranges from './Ranges';
 
@@ -12,6 +11,9 @@ const tamagotchi = [
      isAlive: true
    }
 ]
+const bodyContainer = {
+
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -44,9 +46,6 @@ class App extends React.Component {
     1000);
   }
 
-
-
-
   deathByNeed(){
     let newTamagotchiArray = this.state.tamagotchi.slice();
     let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
@@ -59,16 +58,6 @@ class App extends React.Component {
     });
   }
 
-//luke's solution
-// handleTimer() {
-//   this.time = setTimeout(() => {
-//     this.handleDecreaseStat();
-//   },
-//   1000
-// );
-// }
-
-
 handleTimer() {
   setTimeout(() => {
     this.deathByNeed();
@@ -76,7 +65,6 @@ handleTimer() {
   3000
 );
 }
-
 
 deathByNeed(){
   let newTamagotchiArray = this.state.tamagotchi.slice();
@@ -89,20 +77,6 @@ deathByNeed(){
     console.log(this.state.tamagotchi[0]);
   });
 }
-
-  // deathByNeed(){
-  //   clearInterval(this.increaseTamaNeed);
-  //   let newTamagotchiArray = this.state.tamagotchi.slice();
-  //   let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
-  //   newTamagotchi.isAlive = false;
-  //   newTamagotchiArray[0] = newTamagotchi;
-  //   this.setState({
-  //     tamagotchi: newTamagotchiArray
-  //   }, () => {
-  //     console.log(this.state.tamagotchi[0]);
-  //   });
-  // }
-
 
   getNeedierOverTime() {
     let newTamagotchiArray = this.state.tamagotchi.slice();
@@ -129,12 +103,12 @@ deathByNeed(){
   render() {
     let currentlyVisibleContent = null;
     if (this.state.tamagotchi[0].isAlive === true){
-      currentlyVisibleContent = <div><Buttons helpButtonClicked={this.helpButtonClicked}/><Ranges tamagotchi={this.state.tamagotchi[0]}/></div>;
+      currentlyVisibleContent = <div><Ranges tamagotchi={this.state.tamagotchi[0]} helpButtonClicked={this.helpButtonClicked}/></div>;
     } else {
       currentlyVisibleContent = <RestartButton tamagotchi={this.props.tamagotchi}/>;}
 
   return (
-    <div>
+    <div style={bodyContainer}>
       <Home tamagotchi={this.props.tamagotchi} />
       {currentlyVisibleContent}
     </div>

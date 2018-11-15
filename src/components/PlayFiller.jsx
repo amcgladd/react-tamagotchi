@@ -2,7 +2,7 @@ import React from 'react';
 
 function PlayFiller({ percentage }) {
   const fillerStyles = {
-    background: 'black',
+    background: '#E3655B',
     height: '100%',
     borderRadius: 'inherit',
     transition: 'width 1s ease-in',

@@ -1,6 +1,32 @@
 import React from 'react';
 
 function RestartButton(){
+  const innerRestartButton = {
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'relative',
+    marginTop: '30px'
+  }
+  const perishedTextStyles = {
+    position: 'absolute',
+    left: 'auto',
+    right: 'auto',
+    color: '#E3655B',
+    bottom: '200px',
+    fontSize: '6em',
+    transform: 'rotate(-38deg)',
+    fontFamily: 'Permanent Marker'
+  }
+  const restartButtonStyles = {
+    backgroundColor: '#E3655B',
+    color: 'white',
+    marginRight: '1em',
+    borderRadius: '10px',
+    padding: '10px',
+    width: '80px',
+    display: 'flex',
+    justifyContent: 'center'
+  }
 
   function newGame(event){
     event.preventDefault()
@@ -8,9 +34,9 @@ function RestartButton(){
   };
 
   return(
-    <div>
-      <button onClick={newGame}>Restart</button>
-      <h1>Your Pet has Perished</h1>
+    <div style={innerRestartButton}>
+      <i style={restartButtonStyles} onClick={newGame} className="fas fa-redo-alt fa-3x"></i>
+      <h1 style={perishedTextStyles}>DIE KENDRA!!!!!</h1>
     </div>
   );
 }

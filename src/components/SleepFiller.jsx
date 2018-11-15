@@ -2,7 +2,7 @@ import React from 'react';
 
 function SleepFiller({ percentage }) {
   const fillerStyles = {
-    background: 'black',
+    background: '#52414C',
     height: '100%',
     borderRadius: 'inherit',
     transition: 'width 1s ease-in',
