@@ -8,7 +8,8 @@ const tamagotchi = [
      feedNeed: 100,
      sleepNeed: 100,
      playNeed: 100,
-     isAlive: true
+     isAlive: true,
+     isEvil: false
    }
 ]
 const bodyContainer = {
@@ -23,7 +24,21 @@ class App extends React.Component {
     }
     this.helpButtonClicked = this.helpButtonClicked.bind(this);
     this.deathbyNeed = this.deathByNeed.bind(this);
+    this.snackButtonClicked = this.snackButtonClicked.bind(this);
     }
+
+    snackButtonClicked(){
+      let newTamagotchiArray = this.state.tamagotchi.slice();
+      let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+      newTamagotchi.isEvil = true;
+      newTamagotchiArray[0] = newTamagotchi;
+      this.setState({
+        tamagotchi: newTamagotchiArray
+      }, () => {
+        console.log(this.state.tamagotchi[0]);
+      });
+    }
+
 
   helpButtonClicked(need) {
     if (this.state.tamagotchi[0][need] <=90) {
@@ -58,25 +73,26 @@ class App extends React.Component {
     });
   }
 
-handleTimer() {
-  setTimeout(() => {
-    this.deathByNeed();
-  },
-  3000
-);
+  handleTimer() {
+    setTimeout(() => {
+      this.deathByNeed();
+    },
+    3000
+  );
 }
 
-deathByNeed(){
-  let newTamagotchiArray = this.state.tamagotchi.slice();
-  let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
-  newTamagotchi.isAlive = false;
-  newTamagotchiArray[0] = newTamagotchi;
-  this.setState({
-    tamagotchi: newTamagotchiArray
-  }, () => {
-    console.log(this.state.tamagotchi[0]);
-  });
-}
+  deathByNeed(){
+    let newTamagotchiArray = this.state.tamagotchi.slice();
+    let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+    newTamagotchi.isAlive = false;
+    newTamagotchiArray[0] = newTamagotchi;
+    this.setState({
+      tamagotchi: newTamagotchiArray
+    }, () => {
+      console.log(this.state.tamagotchi[0]);
+    });
+  }
+
 
   getNeedierOverTime() {
     let newTamagotchiArray = this.state.tamagotchi.slice();
@@ -93,8 +109,7 @@ deathByNeed(){
     }, () => {
       console.log(this.state.tamagotchi[0]);
     });
-    if (needFood <= 0 || needPlay <= 0 || needSleep <= 0) {
-      console.log("reaching death state");
+    if (needFood <= -10 || needPlay <= -10 || needSleep <= -10) {
       clearInterval(this.increaseTamaNeed);
       this.handleTimer();
     } //need to call deathby need for this to function again
@@ -103,7 +118,7 @@ deathByNeed(){
   render() {
     let currentlyVisibleContent = null;
     if (this.state.tamagotchi[0].isAlive === true){
-      currentlyVisibleContent = <div><Ranges tamagotchi={this.state.tamagotchi[0]} helpButtonClicked={this.helpButtonClicked}/></div>;
+      currentlyVisibleContent = <div><Ranges tamagotchi={this.state.tamagotchi[0]} helpButtonClicked={this.helpButtonClicked} snackButtonClicked={this.snackButtonClicked}/></div>;
     } else {
       currentlyVisibleContent = <RestartButton tamagotchi={this.props.tamagotchi}/>;}
 

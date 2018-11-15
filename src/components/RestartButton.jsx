@@ -36,7 +36,7 @@ function RestartButton(){
   return(
     <div style={innerRestartButton}>
       <i style={restartButtonStyles} onClick={newGame} className="fas fa-redo-alt fa-3x"></i>
-      <h1 style={perishedTextStyles}>DIE KENDRA!!!!!</h1>
+      <h1 style={perishedTextStyles}>Whoops! DEAD!</h1>
     </div>
   );
 }
