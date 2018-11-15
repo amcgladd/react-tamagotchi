@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   const imageStyles = {
-    width: '50%',
+    width: '70%',
   };
 
   return(
