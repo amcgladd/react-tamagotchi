@@ -17,7 +17,7 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
     margin: '10px 0px',
     alignItems: 'center',
   }
-  const snackButtonstyles = {
+  const snackButtonStyles = {
     backgroundColor: '#4C6085',
     color: 'white',
     marginRight: '1em',
@@ -27,6 +27,7 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
     display: 'flex',
     justifyContent: 'center'
   }
+
   return(
     <div style={rangeContainer}>
       <div style={rangeButtonStyles}>
@@ -42,7 +43,7 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
         <SleepProgressBar percentage={tamagotchi.sleepNeed} />
       </div>
       <div style={rangeButtonStyles}>
-        <button onClick={() => { snackButtonClicked()}} onstyle={snackButtonstyles}>Midnight Snack</button>
+        <button style={snackButtonStyles} onClick={() => { snackButtonClicked()}}>Midnight Snack</button>
       </div>
     </div>
   );

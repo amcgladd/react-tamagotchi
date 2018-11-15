@@ -124,7 +124,7 @@ class App extends React.Component {
 
   return (
     <div style={bodyContainer}>
-      <Home tamagotchi={this.props.tamagotchi} />
+      <Home tamagotchi={this.state.tamagotchi[0]} />
       {currentlyVisibleContent}
     </div>
   );
