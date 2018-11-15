@@ -20,6 +20,7 @@ class App extends React.Component {
       tamagotchi
     }
     this.helpButtonClicked = this.helpButtonClicked.bind(this);
+    this.deathbyNeed = this.deathByNeed.bind(this);
     }
 
   helpButtonClicked(need) {
@@ -40,11 +41,13 @@ class App extends React.Component {
   componentDidMount() {
     this.increaseTamaNeed = setInterval(() =>
       this.getNeedierOverTime(),
-    5000);
+    1000);
   }
 
+
+
+
   deathByNeed(){
-    clearInterval(this.increaseTamaNeed);
     let newTamagotchiArray = this.state.tamagotchi.slice();
     let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
     newTamagotchi.isAlive = false;
@@ -55,6 +58,51 @@ class App extends React.Component {
       console.log(this.state.tamagotchi[0]);
     });
   }
+
+//luke's solution
+// handleTimer() {
+//   this.time = setTimeout(() => {
+//     this.handleDecreaseStat();
+//   },
+//   1000
+// );
+// }
+
+
+handleTimer() {
+  setTimeout(() => {
+    this.deathByNeed();
+  },
+  3000
+);
+}
+
+
+deathByNeed(){
+  let newTamagotchiArray = this.state.tamagotchi.slice();
+  let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+  newTamagotchi.isAlive = false;
+  newTamagotchiArray[0] = newTamagotchi;
+  this.setState({
+    tamagotchi: newTamagotchiArray
+  }, () => {
+    console.log(this.state.tamagotchi[0]);
+  });
+}
+
+  // deathByNeed(){
+  //   clearInterval(this.increaseTamaNeed);
+  //   let newTamagotchiArray = this.state.tamagotchi.slice();
+  //   let newTamagotchi = Object.assign({}, newTamagotchiArray[0]);
+  //   newTamagotchi.isAlive = false;
+  //   newTamagotchiArray[0] = newTamagotchi;
+  //   this.setState({
+  //     tamagotchi: newTamagotchiArray
+  //   }, () => {
+  //     console.log(this.state.tamagotchi[0]);
+  //   });
+  // }
+
 
   getNeedierOverTime() {
     let newTamagotchiArray = this.state.tamagotchi.slice();
@@ -72,8 +120,10 @@ class App extends React.Component {
       console.log(this.state.tamagotchi[0]);
     });
     if (needFood <= 0 || needPlay <= 0 || needSleep <= 0) {
-      this.deathByNeed();
-    }
+      console.log("reaching death state");
+      clearInterval(this.increaseTamaNeed);
+      this.handleTimer();
+    } //need to call deathby need for this to function again
   };
 
   render() {

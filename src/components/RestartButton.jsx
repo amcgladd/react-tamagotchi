@@ -8,7 +8,10 @@ function RestartButton(){
   };
 
   return(
-    <button onClick={newGame}>Restart</button>
+    <div>
+      <button onClick={newGame}>Restart</button>
+      <h1>Your Pet has Perished</h1>
+    </div>
   );
 }
 
