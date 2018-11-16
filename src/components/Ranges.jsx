@@ -23,9 +23,10 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
     marginRight: '1em',
     borderRadius: '10px',
     padding: '10px',
-    width: '80px',
+    width: '200px',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    fontSize: '25px'
   }
 
   return(

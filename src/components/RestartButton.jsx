@@ -12,7 +12,7 @@ function RestartButton(){
     left: 'auto',
     right: 'auto',
     color: '#E3655B',
-    bottom: '200px',
+    bottom: '240px',
     fontSize: '6em',
     transform: 'rotate(-38deg)',
     fontFamily: 'Permanent Marker'
@@ -36,7 +36,7 @@ function RestartButton(){
   return(
     <div style={innerRestartButton}>
       <i style={restartButtonStyles} onClick={newGame} className="fas fa-redo-alt fa-3x"></i>
-      <h1 style={perishedTextStyles}>Whoops! DEAD!</h1>
+      <h1 style={perishedTextStyles}>Your Pet Perished!</h1>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import gizmo from '../assets/images/gizmo.png';
 import gremlin from '../assets/images/gremlin.png';
+import deadgizmo from '../assets/images/deadgizmo.png';
+import deadgremlin from '../assets/images/deadgremlin.png';
 
 function Home({ tamagotchi }) {
   const homeContainer = {
@@ -28,8 +30,7 @@ function Home({ tamagotchi }) {
   };
 
 
-  if (tamagotchi.isEvil === false) {
-
+  if ((tamagotchi.isEvil === false) && (tamagotchi.isAlive === true)) {
     return(
       <div style={homeContainer}>
         <style jsx>{`
@@ -48,7 +49,13 @@ function Home({ tamagotchi }) {
           </div>
       </div>
     )
-  } else {
+  } else if ((tamagotchi.isEvil === false) && (tamagotchi.isAlive === false)){
+    return(<div style={homeContainer}>
+    <div style={dudeContainer}>
+      <img style={imageStyles} src={deadgizmo} />
+      </div>
+  </div>)
+} else if ((tamagotchi.isEvil === true) && (tamagotchi.isAlive === true)) {
     return(
       <div style={homeContainer}>
         <style jsx>{`
@@ -67,7 +74,13 @@ function Home({ tamagotchi }) {
           </div>
       </div>
     )
-  }
+  } else {
+    return(<div style={homeContainer}>
+    <div style={dudeContainer}>
+      <img style={imageStyles} src={deadgremlin} />
+      </div>
+  </div>)
+}
 }
 
 export default Home;
