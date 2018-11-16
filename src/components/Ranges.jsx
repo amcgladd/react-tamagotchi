@@ -9,14 +9,14 @@ import SleepButton from './SleepButton';
 function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
   const rangeContainer = {
     margin: '5% 0px'
-  }
+  };
   const rangeButtonStyles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     margin: '10px 0px',
     alignItems: 'center',
-  }
+  };
   const snackButtonStyles = {
     backgroundColor: '#4C6085',
     color: 'white',
@@ -27,7 +27,7 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
     display: 'flex',
     justifyContent: 'center',
     fontSize: '25px'
-  }
+  };
 
   return(
     <div style={rangeContainer}>
@@ -44,7 +44,7 @@ function Ranges({ tamagotchi, helpButtonClicked, snackButtonClicked }){
         <SleepProgressBar percentage={tamagotchi.sleepNeed} />
       </div>
       <div style={rangeButtonStyles}>
-        <button style={snackButtonStyles} onClick={() => { snackButtonClicked()}}>Midnight Snack</button>
+        <button style={snackButtonStyles} onClick={() => { snackButtonClicked();}}>Midnight Snack</button>
       </div>
     </div>
   );

@@ -10,9 +10,9 @@ function FeedButton({ helpButtonClicked }) {
     width: '80px',
     display: 'flex',
     justifyContent: 'center'
-  }
+  };
   return(
-    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('feedNeed')}} className="fas fa-utensils fa-3x"></i>
+    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('feedNeed');}} className="fas fa-utensils fa-3x"></i>
   );
 }
 

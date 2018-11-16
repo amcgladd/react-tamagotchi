@@ -7,7 +7,7 @@ function PlayFiller({ percentage }) {
     borderRadius: 'inherit',
     transition: 'width 1s ease-in',
     width: `${percentage}%`
-  }
+  };
   return(
     <div style={fillerStyles}>
     </div>

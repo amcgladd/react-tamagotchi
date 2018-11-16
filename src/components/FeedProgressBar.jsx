@@ -7,7 +7,7 @@ function FeedProgressBar({ percentage }) {
     width: '425px',
     borderRadius: '50px',
     backgroundColor: 'white'
-  }
+  };
   return(
     <div style={progressBarStyles}>
       <FeedFiller percentage={percentage}/>

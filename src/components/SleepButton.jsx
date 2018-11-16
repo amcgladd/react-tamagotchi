@@ -10,9 +10,9 @@ function SleepButton({ helpButtonClicked }) {
     width: '80px',
     display: 'flex',
     justifyContent: 'center'
-  }
+  };
   return(
-    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('sleepNeed')}} className="fas fa-bed fa-3x"></i>
+    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('sleepNeed');}} className="fas fa-bed fa-3x"></i>
   );
 }
 

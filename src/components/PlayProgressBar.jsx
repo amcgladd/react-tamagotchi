@@ -7,7 +7,7 @@ function PlayProgressBar({ percentage }) {
     width: '425px',
     borderRadius: '50px',
     backgroundColor: 'white'
-  }
+  };
   return(
     <div style={progressBarStyles}>
       <PlayFiller percentage={percentage}/>

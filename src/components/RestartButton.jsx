@@ -6,7 +6,7 @@ function RestartButton(){
     justifyContent: 'center',
     position: 'relative',
     marginTop: '30px'
-  }
+  };
   const perishedTextStyles = {
     position: 'absolute',
     left: 'auto',
@@ -16,7 +16,7 @@ function RestartButton(){
     fontSize: '6em',
     transform: 'rotate(-38deg)',
     fontFamily: 'Permanent Marker'
-  }
+  };
   const restartButtonStyles = {
     backgroundColor: '#E3655B',
     color: 'white',
@@ -26,12 +26,12 @@ function RestartButton(){
     width: '80px',
     display: 'flex',
     justifyContent: 'center'
-  }
+  };
 
   function newGame(event){
-    event.preventDefault()
-    location.reload()
-  };
+    event.preventDefault();
+    location.reload();
+  }
 
   return(
     <div style={innerRestartButton}>

@@ -9,7 +9,7 @@ function Home({ tamagotchi }) {
     display: 'flex',
     height: '100%',
     marginTop: '12%',
-  }
+  };
   const dudeContainer = {
     backgroundColor: '#52414C',
     marginLeft: 'auto',
@@ -18,10 +18,9 @@ function Home({ tamagotchi }) {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'auto',
     borderRadius: '10px',
     height: '550px'
-  }
+  };
   const imageStyles = {
     width: 'auto',
     height: '400px',
@@ -46,16 +45,16 @@ function Home({ tamagotchi }) {
         `}</style>
         <div style={dudeContainer}>
           <img style={imageStyles} src={gizmo} />
-          </div>
+        </div>
       </div>
-    )
+    );
   } else if ((tamagotchi.isEvil === false) && (tamagotchi.isAlive === false)){
     return(<div style={homeContainer}>
-    <div style={dudeContainer}>
-      <img style={imageStyles} src={deadgizmo} />
+      <div style={dudeContainer}>
+        <img style={imageStyles} src={deadgizmo} />
       </div>
-  </div>)
-} else if ((tamagotchi.isEvil === true) && (tamagotchi.isAlive === true)) {
+    </div>);
+  } else if ((tamagotchi.isEvil === true) && (tamagotchi.isAlive === true)) {
     return(
       <div style={homeContainer}>
         <style jsx>{`
@@ -71,16 +70,16 @@ function Home({ tamagotchi }) {
         `}</style>
         <div style={dudeContainer}>
           <img style={imageStyles} src={gremlin} />
-          </div>
+        </div>
       </div>
-    )
+    );
   } else {
     return(<div style={homeContainer}>
-    <div style={dudeContainer}>
-      <img style={imageStyles} src={deadgremlin} />
+      <div style={dudeContainer}>
+        <img style={imageStyles} src={deadgremlin} />
       </div>
-  </div>)
-}
+    </div>);
+  }
 }
 
 export default Home;

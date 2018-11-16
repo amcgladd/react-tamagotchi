@@ -10,9 +10,9 @@ function PlayButton({ helpButtonClicked }) {
     width: '80px',
     display: 'flex',
     justifyContent: 'center'
-  }
+  };
   return(
-    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('playNeed')}} className="fas fa-basketball-ball fa-3x"></i>
+    <i style={statColorButtonStyle} onClick={() => { helpButtonClicked('playNeed');}} className="fas fa-basketball-ball fa-3x"></i>
   );
 }
 
